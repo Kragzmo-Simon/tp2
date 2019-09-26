@@ -4,9 +4,8 @@ from utils import *
 from random import randint
 
 # Exercice 1
-
+print("Code par FERY Simon et DURAFFOURG Maud")
 print('Exercice 1')
-
 
 """
 Partie A
@@ -51,8 +50,9 @@ print("Le texte a code est " + plaintext + ". On le code avec tous les cles poss
         "faible.")
 
 comptClesFaibles = 0
+
 for index in range(0, int(math.pow(2, 9)) ) :
-    key = itobits(index)
+    key = itobits(index,9)
     iteration_text = Ek(plaintext, key)
     iteration_text = Ek(iteration_text, key)
     if (iteration_text == plaintext):
@@ -64,3 +64,18 @@ print("Le nombre de cle faibles trouvees est de : " , comptClesFaibles)
 Partie D
 """
 print("Partie D :")
+plaintext = '010111000110'
+print("Le texte a code est " + plaintext + ". On le code avec tous les cles possibles pour verifier qu aucune n est "
+        "faible.")
+
+comptClesFaibles = 0
+
+for plaintext_index in range(0, int(math.pow(2, 12)) ) :
+    plaintext = itobits(plaintext_index, 12)
+    for key_index in range(0, int(math.pow(2, 9)) ) :
+        key = itobits(key_index, 9)
+        iteration_text = Ek(plaintext, key)
+        iteration_text = Ek(iteration_text, key)
+        if (iteration_text == plaintext):
+            comptClesFaibles +=1
+print("Le nombre de cle faibles trouvees est de : " , comptClesFaibles)

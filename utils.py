@@ -11,6 +11,15 @@ S1 = ['101','010','001','110','011','100','111','000',
 S2 = ['100','000','110','101','111','001','011','010',
       '101','011','000','111','110','010','001','100']
 
+def CBC(plaintext, key):
+    iteration_text = plaintext
+    for iteration in range(0,4):
+        # add xor
+        iteration_text = iterationDES(iteration_text, determineK_i(key, iteration))
+
+    return iteration_text
+
+
 def Ek(plaintext,key):
     iteration_text = plaintext
     for iteration in range(0,4):
@@ -104,7 +113,7 @@ def generate_random_key():
 
 #from https://www.geeksforgeeks.org/generate-binary-number-0-n/
 # return x in a 9 bits long string
-def itobits(x):
+def itobits(x, length):
     negative = False
     base = 2
     s = ""
@@ -122,7 +131,7 @@ def itobits(x):
         # gives quotient
         x = int(x / base)
 
-    while (len(s) != 9):
+    while (len(s) != length):
         s = "0" + s
 
     return s
