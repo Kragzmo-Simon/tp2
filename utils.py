@@ -1,4 +1,6 @@
 
+from random import randint
+
 # Notations :
 # Li / Ri : designe le message de 6 bits Li ou Ri (iteration i)
 # Li_m1 / Ri_m1 : designe Li et Ri a l'iteration i-1
@@ -10,7 +12,10 @@ S2 = ['100','000','110','101','111','001','011','010',
       '101','011','000','111','110','010','001','100']
 
 
-def iterationDES(Li_m1, Ri_m1, Ki):
+def iterationDES(Li_m1_Ri_m1, Ki):
+    Li_m1 = Li_m1_Ri_m1[:6]
+    Ri_m1 = Li_m1_Ri_m1[6:]
+
     Li = Ri_m1
     Ri = xor(Li_m1,f(Ri_m1, Ki))
     res = Li + Ri
@@ -77,3 +82,9 @@ def determineK_i(key, iteration):
         index += 1
     return key_iteration
 
+
+def generate_random_key():
+    res = ''
+    for i in range(0,9):
+        res += str(randint(0,1))
+    return res

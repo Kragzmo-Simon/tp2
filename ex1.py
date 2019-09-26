@@ -1,5 +1,6 @@
 
 from utils import *
+from random import randint
 
 # Exercice 1
 
@@ -17,19 +18,19 @@ K = '011001010'
 
 L0R0 = L0 + R0
 print("")
-print(iterationDES(L0, R0, determineK_i(K, 0) ))
+#print(iterationDES(L0, R0, determineK_i(K, 0) ))
 
 # une iteration avec k0 + le dechiffrement avec k0
 
 """
 Partie B
-
-L0 = '011100'
-R0 = '100110'
-
-K = '01100101'
-
 """
+plaintext = '010111010110'
+key = generate_random_key()
+
+#for iteration in range(0,4):
+#    ciphertext = iterationDES()
+print('key : ', key)
 
 """
 Partie C
