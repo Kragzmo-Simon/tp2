@@ -50,9 +50,9 @@ def additionModulo2(chaine1, chaine2):
         bit1 = chaine1[index]
         bit2 = chaine2[index]
         if (bit1=='0' and bit2=='0') or (bit1=='1' and bit2=='1'):
-            res += 0
+            res += '0'
         else:
-            res += 1
+            res += '1'
     return res
 
 
