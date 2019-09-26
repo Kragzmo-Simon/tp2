@@ -45,7 +45,7 @@ def xor(chaine1, chaine2):
     return res_chaine
 
 def additionModulo2(chaine1, chaine2):
-    res = 0
+    res = ''
     for index in range(0, len(chaine1)):
         bit1 = chaine1[index]
         bit2 = chaine2[index]
