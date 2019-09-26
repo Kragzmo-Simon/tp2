@@ -46,7 +46,7 @@ def xor(chaine1, chaine2):
 
 def additionModulo2(chaine1, chaine2):
     res = 0
-    for index in range(0, chaine1):
+    for index in range(0, len(chaine1)):
         bit1 = chaine1[index]
         bit2 = chaine2[index]
         if (bit1=='0' and bit2=='0') or (bit1=='1' and bit2=='1'):
