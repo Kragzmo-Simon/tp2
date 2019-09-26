@@ -39,9 +39,13 @@ print('key : ', key)
 Partie C
 """
 print("Partie C :")
+plaintext = '010111000110'
+print("Le texte a code est " + plaintext + ". On le code avec tous les clés possibles pour verifier qu aucune n est "
+        "faible")
 for index in range(0, int(math.pow(2, 9)) ) :
     key = itobits(index)
-    
+
+
 """
 Partie D
 """
