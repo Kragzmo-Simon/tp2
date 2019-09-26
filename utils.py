@@ -52,11 +52,11 @@ def getbits_decimalrepr(chainebits):
 # iteration is the current iteration number (int)
 def determineK_i(key, iteration):
     key_iteration = ''
-    for i in range(iteration, min(len(key), iteration + 8 ) ) :
-        key_iteration += key[i]
-    i = 0
+    for index in range(iteration, min(len(key), iteration + 8 ) ) :
+        key_iteration += key[index]
+    index = 0
     while len(key_iteration) != 8 :
-        key_iteration += key[i]
-        i += 1
+        key_iteration += key[index]
+        index += 1
     return key_iteration
 
