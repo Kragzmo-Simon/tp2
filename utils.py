@@ -88,3 +88,36 @@ def generate_random_key():
     for i in range(0,9):
         res += str(randint(0,1))
     return res
+
+#from https://www.geeksforgeeks.org/generate-binary-number-0-n/
+def itoa(x, base):
+    negative = False
+    s = ""
+    if (x == 0):
+        return "0"
+    negative = (x < 0)
+    if (negative):
+        x = -1 * x
+    while (x != 0):
+        # add char to
+        # front of s
+        s = str(x % base) + s
+
+        # integer division
+        # gives quotient
+        x = int(x / base)
+
+    if (negative):
+        s = "-".s
+
+    return s
+
+#from https://www.geeksforgeeks.org/generate-binary-number-0-n/
+def binaryGenerator(n):
+    allBinary = []
+    for i in range(0, n + 1):
+        newbinary = itoa(i, 2)
+        while (len(newbinary) != 9):
+            newbinary = "0" + newbinary
+        allBinary.append( newbinary )
+    return allBinary
