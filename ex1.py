@@ -11,7 +11,7 @@ print('Exercice 1')
 """
 Partie A
 """
-print('Partie A :')
+print('\nPartie A')
 # exemple vu dans le cours
 L0 = '011100'
 R0 = '100110'
@@ -28,12 +28,19 @@ print("Resultat du decodage de l iteration : " + decoding[6:] + decoding[:6])
 """
 Partie B
 """
+print('\nPartie B')
 plaintext = '010111010110'
 key = generate_random_key()
 
-#for iteration in range(0,4):
-#    ciphertext = iterationDES()
-print('key : ', key)
+print('Voici la clé de cryptage :                           ', key)
+print('Voici le plaintext à crypter :                    ', plaintext)
+print('Voici les textes cryptés à chaque itération')
+iteration_text = plaintext
+for iteration in range(0,4):
+    iteration_text = iterationDES(iteration_text, determineK_i(key, iteration))
+    decode_text = decodeDES(iteration_text, key, iteration)
+    print('Iteration ', iteration, ' : ', iteration_text, ' / message decode : ', decode_text)
+    
 
 """
 Partie C
