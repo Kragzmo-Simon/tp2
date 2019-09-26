@@ -16,6 +16,9 @@ K = '100111010'
 
 L0R0 = L0 + R0
 
+test = '011001'
+print(test)
+print(expander(test))
 
 """
 Partie B

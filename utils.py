@@ -6,10 +6,8 @@
 
 # transforme LiRi en Li+1/Ri+1 grâce à une clé K
 def iterationDES(Li_m1, Ri_m1, Ki):
-
     Li = Ri_m1
-
-    # Ri = xor(Li_m1,f(Ri_m1, Ki))
+    Ri = xor(Li_m1,f(Ri_m1, Ki))
 
     return 0
 
@@ -20,7 +18,17 @@ def f(Li_m1, Ki):
 
 def expander(chaine6bits):
     chaine8bits = ''
-
+    chaine8bits += chaine6bits[:2] + 2 * (chaine6bits[3] + chaine6bits[2]) + chaine6bits[4:]
     return chaine8bits
 
-# Comment faire le xor sur nos chaines de bits?
+def xor(chaine1, chaine2):
+    res_chaine = ''
+    for index in range(0,len(chaine1)):
+        bit1 = chaine1[index]
+        bit2 = chaine2[index]
+        if (bit1=='0' and bit2=='0') or (bit1=='1' and bit2=='1'):
+            res_bit = '0'
+        else:
+            res_bit = '1'
+        res_chaine += res_bit
+    return res_chaine
