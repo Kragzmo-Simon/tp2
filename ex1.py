@@ -28,9 +28,13 @@ Partie B
 plaintext = '010111010110'
 key = generate_random_key()
 
-#for iteration in range(0,4):
-#    ciphertext = iterationDES()
-print('key : ', key)
+print('\nVoici la clé de cryptage : ', key)
+print('Voici le plaintext à crypter : ', plaintext)
+print('Voici les textes cryptés à chaque itération')
+iteration_text = plaintext
+for iteration in range(0,4):
+    iteration_text = iterationDES(iteration_text, determineK_i(key, iteration))
+    print('Iteration ', iteration, ' : ', iteration_text)
 
 """
 Partie C
