@@ -1,8 +1,8 @@
 
 # Notations :
-# Li / Ri : désigne le message de 6 bits Li ou Ri (itération i)
-# Li_m1 / Ri_m1 : désigne Li et Ri à l'itération i-1
-# Li_p1 / Ri_p1 : désigne Li et Ri à l'itération i+1
+# Li / Ri : designe le message de 6 bits Li ou Ri (iteration i)
+# Li_m1 / Ri_m1 : designe Li et Ri a l'iteration i-1
+# Li_p1 / Ri_p1 : designe Li et Ri a l'iteration i+1
 
 S1 = ['101','010','001','011','100','110','110','011','100','010','000','111','111','000','101','011']
 S2 = ['100','000','110','101','011','000','101','111','001','111','110','010','011','010','001','100']
@@ -55,10 +55,8 @@ def determineK_i(key, iteration):
     for i in range(iteration, min(len(key), iteration + 8 ) ) :
         key_iteration += key[i]
     i = 0
-    while len(key_iteration != 8) :
+    while len(key_iteration) != 8 :
         key_iteration += key[i]
         i += 1
     return key_iteration
-
-determineK_i("010101010",0 )
 
