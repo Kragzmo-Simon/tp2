@@ -14,10 +14,13 @@ def iterationDES(Li_m1, Ri_m1, Ki):
 
     return 0
 
-def f(Li_m1, Ki):
-    #Li+_ =  
-
-    return 0
+def f(Ri_m1, Ki):
+    chaine8bits = expander(Ri_m1)
+    chaine8bits = additionModulo2(chaine8bits,Ki)
+    chaine3bits1 = getSBox(chaine8bits[:4], S1)
+    chaine3bits2 = getSBox(chaine8bits[4:], S2)
+    chaine6bits = chaine3bits1 + chaine3bits2
+    return chaine6bits
 
 def getSBox(chaine4bits, Sbox):
     index = getbits_decimalrepr(chaine4bits)
@@ -40,6 +43,18 @@ def xor(chaine1, chaine2):
             res_bit = '1'
         res_chaine += res_bit
     return res_chaine
+
+def additionModulo2(chaine1, chaine2):
+    res = 0
+    for index in range(0, chaine1):
+        bit1 = chaine1[index]
+        bit2 = chaine2[index]
+        if (bit1=='0' and bit2=='0') or (bit1=='1' and bit2=='1'):
+            res += 0
+        else:
+            res += 1
+    return res
+
 
 def getbits_decimalrepr(chainebits):
     decimalrepr = 0
