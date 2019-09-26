@@ -32,9 +32,9 @@ print('\nPartie B')
 plaintext = '010111010110'
 key = generate_random_key()
 
-print('Voici la clé de cryptage :                           ', key)
-print('Voici le plaintext à crypter :                    ', plaintext)
-print('Voici les textes cryptés à chaque itération')
+print('Voici la cle de cryptage :                           ', key)
+print('Voici le plaintext a crypter :                    ', plaintext)
+print('Voici les textes cryptes a chaque iteration')
 iteration_text = plaintext
 for iteration in range(0,4):
     iteration_text = iterationDES(iteration_text, determineK_i(key, iteration))
@@ -47,11 +47,18 @@ Partie C
 """
 print("Partie C :")
 plaintext = '010111000110'
-print("Le texte a code est " + plaintext + ". On le code avec tous les clés possibles pour verifier qu aucune n est "
-        "faible")
+print("Le texte a code est " + plaintext + ". On le code avec tous les cles possibles pour verifier qu aucune n est "
+        "faible.")
+
+comptClesFaibles = 0
 for index in range(0, int(math.pow(2, 9)) ) :
     key = itobits(index)
-
+    iteration_text = Ek(plaintext, key)
+    iteration_text = Ek(iteration_text, key)
+    if (iteration_text == plaintext):
+        print("Cle faible")
+        comptClesFaibles +=1
+print("Le nombre de cle faibles trouvees est de : " , comptClesFaibles)
 
 """
 Partie D

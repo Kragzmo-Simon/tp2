@@ -11,6 +11,11 @@ S1 = ['101','010','001','110','011','100','111','000',
 S2 = ['100','000','110','101','111','001','011','010',
       '101','011','000','111','110','010','001','100']
 
+def Ek(plaintext,key):
+    iteration_text = plaintext
+    for iteration in range(0,4):
+        iteration_text = iterationDES(iteration_text, determineK_i(key, iteration))
+    return iteration_text
 
 def decodeDES(ciphertext, key, iteration_number):
     iteration_text = ciphertext
