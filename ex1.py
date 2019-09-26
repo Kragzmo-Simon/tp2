@@ -1,3 +1,4 @@
+import math
 
 from utils import *
 from random import randint
@@ -10,6 +11,7 @@ print('Exercice 1')
 """
 Partie A
 """
+print('Partie A :')
 # exemple vu dans le cours
 L0 = '011100'
 R0 = '100110'
@@ -36,7 +38,11 @@ print('key : ', key)
 """
 Partie C
 """
-
+print("Partie C :")
+for index in range(0, int(math.pow(2, 9)) ) :
+    key = itobits(index)
+    
 """
 Partie D
 """
+print("Partie D :")

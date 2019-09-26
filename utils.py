@@ -90,11 +90,13 @@ def generate_random_key():
     return res
 
 #from https://www.geeksforgeeks.org/generate-binary-number-0-n/
-def itoa(x, base):
+# return x in a 9 bits long string
+def itobits(x):
     negative = False
+    base = 2
     s = ""
     if (x == 0):
-        return "0"
+        s = "0"
     negative = (x < 0)
     if (negative):
         x = -1 * x
@@ -107,17 +109,7 @@ def itoa(x, base):
         # gives quotient
         x = int(x / base)
 
-    if (negative):
-        s = "-".s
+    while (len(s) != 9):
+        s = "0" + s
 
     return s
-
-#from https://www.geeksforgeeks.org/generate-binary-number-0-n/
-def binaryGenerator(n):
-    allBinary = []
-    for i in range(0, n + 1):
-        newbinary = itoa(i, 2)
-        while (len(newbinary) != 9):
-            newbinary = "0" + newbinary
-        allBinary.append( newbinary )
-    return allBinary
