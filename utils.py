@@ -20,6 +20,13 @@ def CBC(plaintext, key):
     return iteration_text
 
 
+def Ekprime(plaintext,key):
+    iteration_text = plaintext
+    for iteration in range(0,4):
+        iteration_text = iterationDES(iteration_text, determineK_i(key, iteration))
+        iteration_text = iteration_text[6:] + iteration_text[:6]
+    return iteration_text
+
 def Ek(plaintext,key):
     iteration_text = plaintext
     for iteration in range(0,4):

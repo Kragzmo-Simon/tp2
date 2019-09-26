@@ -69,13 +69,12 @@ print("Le texte a code est " + plaintext + ". On le code avec tous les cles poss
         "faible.")
 
 comptClesFaibles = 0
-
-for plaintext_index in range(0, int(math.pow(2, 12)) ) :
-    plaintext = itobits(plaintext_index, 12)
-    for key_index in range(0, int(math.pow(2, 9)) ) :
-        key = itobits(key_index, 9)
-        iteration_text = Ek(plaintext, key)
-        iteration_text = Ek(iteration_text, key)
+for key_index in range(0, int(math.pow(2, 9)) ) :
+    key = itobits(key_index, 9)
+    for plaintext_index in range(0, int(math.pow(2, 12)) ) :
+        plaintext = itobits(plaintext_index, 12)
+        iteration_text = Ekprime(plaintext, key)
+        iteration_text = Ekprime(iteration_text, key)
         if (iteration_text == plaintext):
             comptClesFaibles +=1
 print("Le nombre de cle faibles trouvees est de : " , comptClesFaibles)
