@@ -12,6 +12,14 @@ S2 = ['100','000','110','101','111','001','011','010',
       '101','011','000','111','110','010','001','100']
 
 
+def decodeDES(ciphertext, key, iteration_number):
+    iteration_text = ciphertext
+    iteration_text = iteration_text[6:] + iteration_text[:6]
+    for iteration in range(iteration_number,-1,-1):
+        iteration_text = iterationDES(iteration_text, determineK_i(key, iteration))
+    iteration_text = iteration_text[6:] + iteration_text[:6]
+    return iteration_text
+
 def iterationDES(Li_m1_Ri_m1, Ki):
     Li_m1 = Li_m1_Ri_m1[:6]
     Ri_m1 = Li_m1_Ri_m1[6:]
