@@ -68,13 +68,16 @@ plaintext = '010111000110'
 print("Le texte a code est " + plaintext + ". On le code avec tous les cles possibles pour verifier qu aucune n est "
         "faible.")
 
-comptClesFaibles = 0
+compteClefsPasFaibles = 0
 for key_index in range(0, int(math.pow(2, 9)) ) :
     key = itobits(key_index, 9)
     for plaintext_index in range(0, int(math.pow(2, 12)) ) :
         plaintext = itobits(plaintext_index, 12)
         iteration_text = Ekprime(plaintext, key)
         iteration_text = Ekprime(iteration_text, key)
-        if (iteration_text == plaintext):
-            comptClesFaibles +=1
-print("Le nombre de cle faibles trouvees est de : " , comptClesFaibles)
+        if (iteration_text != plaintext):
+            compteClefsPasFaibles +=1
+            break
+
+compteClesFaibles = math.pow(2,9) - compteClefsPasFaibles
+print("Le nombre de cle faibles trouvees est de : " , compteClesFaibles)
