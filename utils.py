@@ -11,8 +11,8 @@ S2 = ['100','000','110','101','011','000','101','111','001','111','110','010','0
 def iterationDES(Li_m1, Ri_m1, Ki):
     Li = Ri_m1
     Ri = xor(Li_m1,f(Ri_m1, Ki))
-
-    return 0
+    res = Li + Ri
+    return res
 
 def f(Ri_m1, Ki):
     chaine8bits = expander(Ri_m1)
