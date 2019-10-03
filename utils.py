@@ -1,5 +1,6 @@
 
 from random import randint
+import math
 
 # Notations :
 # Li / Ri : designe le message de 6 bits Li ou Ri (iteration i)
@@ -153,3 +154,7 @@ def itobits(x, length):
         s = "0" + s
 
     return s
+
+def get_progress_step(number, percentage):
+    progress_step = math.floor(0.01 * percentage * number)
+    return progress_step
